@@ -35,14 +35,17 @@ class CreateAllTables extends Migration
         Schema::create('class', function (Blueprint $table) {
             $table->bigincrements('id');
             $table->string('class_name');
-            $table->string('num_of_students');
+            $table->integer('num_of_students')->nullable();
             $table->string('teacher_of_class');
+            $table->integer('quota')->nullable();
+            $table->integer('vacancy')->nullable();
             $table->timestamps();
         });
 
         Schema::create('lesson', function (Blueprint $table) {
             $table->bigincrements('id');
             $table->string('lesson');
+            $table->string('lecturer');
             $table->integer('status')->default(1);
             $table->timestamps();
         });
@@ -77,6 +80,7 @@ class CreateAllTables extends Migration
             $table->bigincrements('id');
             $table->unsignedBiginteger('department_id');
             $table->string('name');
+            $table->string('address');
             $table->string('email');
             $table->string('phone');
             $table->string('image');

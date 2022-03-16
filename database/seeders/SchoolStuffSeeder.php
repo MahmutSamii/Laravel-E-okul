@@ -40,9 +40,10 @@ class SchoolStuffSeeder extends Seeder
         SchoolStuff::insert([
             'department_id' => 1,
             'name' =>'Mahmut',
+            'address' => 'Sanane',
             'email' => 'test@test.com',
             'phone' => '1234567890',
-            'image' => asset('back/img/contact/1.jpg'),
+            'image' => '',
             'is_teacher' => rand(0, 1),
             'created_at' => now(),
             'updated_at' => now()

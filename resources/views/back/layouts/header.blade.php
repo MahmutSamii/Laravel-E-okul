@@ -61,6 +61,7 @@
     <link rel="stylesheet" href="{{asset('back/css/responsive.css')}}">
     <link rel="stylesheet" href="{{asset('back/css/data-table/bootstrap-table.css')}}">
     <link rel="stylesheet" href="{{asset('back/css/data-table/bootstrap-editable.css')}}">
+    <link href="{{asset('back/src/css/lightbox.css')}}" rel="stylesheet" />
     <!-- modernizr JS
 		============================================ -->
     <script src="{{asset('back/js/vendor/modernizr-2.8.3.min.js')}}"></script>

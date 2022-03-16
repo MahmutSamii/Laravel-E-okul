@@ -18,12 +18,10 @@
                         <a title="Landing Page" href="#" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Takvim</span></a>
                     </li>
                     <li>
-                        <a class="has-arrow" href="#" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Öğretmenler</span></a>
+                        <a class="has-arrow" href="#" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Elemanlar</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="All Professors" href="#"><span class="mini-sub-pro">Bütün Öğretmenler</span></a></li>
-                            <li><a title="Add Professor" href="#"><span class="mini-sub-pro">Öğretmen Ekle</span></a></li>
-                            <li><a title="Edit Professor" href="#"><span class="mini-sub-pro">Öğretmen Güncelle</span></a></li>
-                            <li><a title="Professor Profile" href="#"><span class="mini-sub-pro">Öğretmen Profilleri</span></a></li>
+                            <li><a title="Bütün ELemanlar" href="{{route('admin.teachers.index')}}"><span class="mini-sub-pro">Bütün Elemanlar</span></a></li>
+                            <li><a title="Eleman Ekle" href="{{route('admin.teachers.create')}}"><span class="mini-sub-pro">Eleman Ekle</span></a></li>
                         </ul>
                     </li>
                     <li>
@@ -31,16 +29,13 @@
                         <ul class="submenu-angle" aria-expanded="false">
                             <li><a title="All Students" href="#"><span class="mini-sub-pro">Bütün Öğrenciler</span></a></li>
                             <li><a title="Add Students" href="#"><span class="mini-sub-pro">Öğrenci Ekle</span></a></li>
-                            <li><a title="Edit Students" href="#"><span class="mini-sub-pro">Öğrenci Güncelle</span></a></li>
-                            <li><a title="Students Profile" href="#"><span class="mini-sub-pro">Öğrenci Profilleri</span></a></li>
                         </ul>
                     </li>
                     <li>
                         <a class="has-arrow  ml-5" href="#" aria-expanded="false"><img src="{{asset('back/img/education.png')}}" width="20px" > <span class="mini-click-non">Sınıflar</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="All Courses" href="#"><span class="mini-sub-pro">Bütün Sınıflar</span></a></li>
-                            <li><a title="Add Courses" href="#"><span class="mini-sub-pro">Sınıf Ekle</span></a></li>
-                            <li><a title="Edit Courses" href="#"><span class="mini-sub-pro">Sınıf Güncelle</span></a></li>
+                            <li><a title="All Courses" href="{{route('admin.classes.index')}}"><span class="mini-sub-pro">Bütün Sınıflar</span></a></li>
+                            <li><a title="Add Courses" href="{{route('admin.classes.create')}}"><span class="mini-sub-pro">Sınıf Ekle</span></a></li>
                         </ul>
                     </li>
                     <li>

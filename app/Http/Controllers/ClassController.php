@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SchoolStuff;
 use Illuminate\Http\Request;
-use App\Models\Lesson;
+use App\Models\Classes;
+use App\Models\SchoolStuff;
 
-class LessonController extends Controller
+class ClassController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class LessonController extends Controller
      */
     public function index()
     {
-        $lessons = Lesson::get();
-        return view('back.lesson.index',compact('lessons'));
+        $classes = Classes::get();
+        return view('back.classes.index',compact('classes'));
     }
 
     /**
@@ -26,8 +26,8 @@ class LessonController extends Controller
      */
     public function create()
     {
-        $staffs = SchoolStuff::get();
-        return view('back.lesson.create',compact('staffs'));
+         $teacher = SchoolStuff::all();
+         return view('back.classes.create',compact('teacher'));
     }
 
     /**
@@ -38,14 +38,14 @@ class LessonController extends Controller
      */
     public function store(Request $request)
     {
-        $lesson = new Lesson;
-        $lesson->lesson = $request->lesson;
-        $lesson->lecturer = $request->lecturer;
-        $lesson->status = $request->status;
-        $lesson->created_at = now();
-        $lesson->save();
-        toastr()->success('Başarılı', 'Ders Başarıyla Eklendi');
+        $classes = new Classes;
+        $classes->class_name = $request->class_name;
+        $classes->teacher_of_class = $request->teacher_of_class;
+        $classes->quota = $request->quota;
+        $classes->save();
+        toastr()->success('Başarılı', 'Sınıf Başarıyla Eklendi');
         return redirect()->back();
+
     }
 
     /**
@@ -56,11 +56,7 @@ class LessonController extends Controller
      */
     public function show($id)
     {
-            $lesson = Lesson::findOrFail($id);
-            $lesson->delete();
-            toastr()->success('Başarılı', 'Ders Başarıyla Silindi');
-            return redirect()->back();
-
+        //
     }
 
     /**
@@ -71,8 +67,7 @@ class LessonController extends Controller
      */
     public function edit($id)
     {
-        $lessons = lesson::findOrFail($id);
-        return view('back.lesson.edit',compact('lessons'));
+        //
     }
 
     /**
@@ -84,13 +79,7 @@ class LessonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $lesson = Lesson::findOrFail($id);
-        $lesson->lesson = $request->lesson;
-        $lesson->status = $request->status;
-        $lesson->updated_at = now();
-        $lesson->save();
-        toastr()->success('Başarılı', 'Ders Başarıyla Güncellendi');
-        return redirect()->back();
+        //
     }
 
     /**

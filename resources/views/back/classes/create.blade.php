@@ -15,27 +15,25 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="review-content-section">
                                         <div id="dropzone1" class="pro-ad addcoursepro">
-                                            <form method="post" action="{{route('admin.lessons.store')}}" class="dropzone dropzone-custom needsclick addcourse" id="demo1-upload">
+                                            <form method="post" action="{{route('admin.classes.store')}}" class="dropzone dropzone-custom needsclick addcourse" id="demo1-upload">
                                                 @csrf
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                                         <div class="form-group">
-                                                            <input name="lesson" type="text" class="form-control" placeholder="Ders Adı">
+                                                            <input name="class_name" type="text" class="form-control" placeholder="Sınıf Adı">
                                                         </div>
-                                                        <select name="lecturer" class="form-control">
-                                                            <option value="none" selected="" disabled="">Ders Öğretmeni Seçiniz</option>
-                                                            @foreach($staffs as $teacher)
-                                                                @foreach($teacher->departments as $department)
-                                                                    @if($department->slug != "mudur")
-                                                                        <option value="{{$department->id}}">{{$teacher->name.' | '.$department->department_name}}</option>
-                                                                    @endif
-                                                                @endforeach
+                                                        <div class="form-group">
+                                                            <input name="quota" type="text" class="form-control" placeholder="Kontenjan">
+                                                        </div>
+                                                        <select name="teacher_of_class" class="form-control">
+                                                            <option value="none" selected="" disabled="">Sınf Öğretmeni</option>
+                                                            @foreach($teacher as $teach)
+                                                              @foreach($teach->departments as $department)
+                                                                @if($department->slug != "mudur")
+                                                                 <option value="{{$department->id}}">{{$teach->name.' | '.$department->department_name}}</option>
+                                                                @endif
+                                                              @endforeach
                                                             @endforeach
-                                                        </select>
-                                                        <select name="status" class="form-control">
-                                                            <option value="none" selected="" disabled="">Durum Seçiniz</option>
-                                                            <option value="1">Aktif</option>
-                                                            <option value="0">Pasif</option>
                                                         </select>
                                                     </div>
                                                 </div>

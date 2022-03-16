@@ -40,11 +40,8 @@
     ============================================ -->
 <script src="{{asset('back/js/metisMenu/metisMenu.min.js')}}"></script>
 <script src="{{asset('back/js/metisMenu/metisMenu-active.js')}}"></script>
-<!-- morrisjs JS
-    ============================================ -->
-<script src="{{asset('back/js/morrisjs/raphael-min.js')}}"></script>
-<script src="{{asset('back/js/morrisjs/morris.js')}}"></script>
-<script src="{{asset('back/js/morrisjs/morris-active.js')}}"></script>
+
+
 <!-- morrisjs JS
     ============================================ -->
 <script src="{{asset('back/js/sparkline/jquery.sparkline.min.js')}}"></script>
@@ -80,6 +77,7 @@
 <script src="{{asset('back/js/editable/xediable-active.js')}}"></script>
 <script src="{{asset('back/sweetalert2/dist/sweetalert2.min.js')}}"></script>
 <script src="{{asset('back/sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
+<script src="{{asset('back/src/js/lightbox.js')}}"></script>
 @yield('js')
 @toastr_js
 @toastr_render

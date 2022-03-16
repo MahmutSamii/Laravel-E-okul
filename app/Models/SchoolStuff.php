@@ -11,8 +11,12 @@ use Illuminate\Database\Eloquent\Model;
  */
 class SchoolStuff extends Model
 {
-    protected $table = 'school_stuff';
-    protected $fillable = ['department','name','email','phone','image','is_teacher'];
-    public $timestamps = false;
     use HasFactory;
+    protected $table = 'school_stuff';
+    protected $fillable = ['department_id','department','name','email','phone','image','is_teacher'];
+    public $timestamps = false;
+
+    public function departments(){
+        return $this->hasMany('App\Models\Department','id','department_id');
+    }
 }

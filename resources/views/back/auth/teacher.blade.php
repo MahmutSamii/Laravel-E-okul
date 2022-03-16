@@ -105,7 +105,7 @@
  var loginForm = document.getElementById('loginForm');
 
  ogretmenBtn.addEventListener('click', function(){
-     loginForm.action = "{{route('teacher.post')}}";
+     loginForm.action = "{{route('teacherLogin.post')}}";
      text.innerText="Öğretmen Girişi";
      hiddenBtn.value = 1;
  })

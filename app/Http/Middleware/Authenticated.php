@@ -18,7 +18,7 @@ class authenticated
     public function handle(Request $request, Closure $next)
     {
         if (!Auth::check()){
-            return redirect()->route('teacher');
+            return redirect()->route('teacherLogin');
         }
         return $next($request);
     }

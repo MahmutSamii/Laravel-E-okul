@@ -21,11 +21,11 @@ class LoginController extends Controller
         if (Auth::attempt(['email' => $request->email,'password' => $request->password])){
             return redirect()->route('admin.anasayfa');
         }
-        return redirect()->route('teacher')->withErrors('Email adresi veya şifre hatalı!');
+        return redirect()->route('teacherLogin')->withErrors('Email adresi veya şifre hatalı!');
     }
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('teacher');
+        return redirect()->route('teacherLogin');
     }
 }

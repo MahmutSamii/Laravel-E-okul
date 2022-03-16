@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\ClassController;
+use App\Http\Controllers\TeacherController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,8 +20,8 @@ use App\Http\Controllers\LessonController;
 
 
 
-Route::get('/teacherLogin',[LoginController::class,'teacherLogin'])->name('teacher');
-Route::post('/teacherLogin',[LoginController::class,'teacherLoginPost'])->name('teacher.post');
+Route::get('/teacherLogin',[LoginController::class,'teacherLogin'])->name('teacherLogin');
+Route::post('/teacherLogin',[LoginController::class,'teacherLoginPost'])->name('teacherLogin.post');
 
 
 
@@ -29,5 +31,9 @@ Route::prefix('admin')->middleware('authenticated')->name('admin.')->group(funct
     Route::resource('departments',DepartmentController::class);
     //Lesson Controller
     Route::resource('lessons',LessonController::class);
+    //Classes Controller
+    Route::resource('classes',ClassController::class);
+    //SchoolStuff Controller
+    Route::resource('teachers',TeacherController::class);
     Route::get('/cikis',[LoginController::class,'logout'])->name('logout');
 });
