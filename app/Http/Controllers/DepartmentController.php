@@ -14,8 +14,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-      $departments = Department::get();
-      return view('back.department.index',compact('departments'));
+      $department = Department::get();
+      return view('back.department.index',compact('department'));
     }
 
     /**
@@ -54,7 +54,7 @@ class DepartmentController extends Controller
      */
     public function show($id)
     {
-        $lesson = Department::findOrFail($id);
+        $lesson = Department::findOrFail($id); //@FIXME show is not used for delete
         $lesson->delete();
         toastr()->success('Başarılı', 'Departman Başarıyla Silindi');
         return redirect()->back();

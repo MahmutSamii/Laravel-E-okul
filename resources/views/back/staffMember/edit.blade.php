@@ -21,6 +21,7 @@
                                                   class="dropzone dropzone-custom needsclick add-professors"
                                                   id="demo1-upload">
                                                 @csrf
+                                                @method('PUT')
                                                 <div class="row">
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                         <div class="form-group">
@@ -52,14 +53,15 @@
                                                             <option value="none" selected="" disabled="">Departman
                                                                 Seçiniz
                                                             </option>
-                                                            @foreach($schoolStuff->departments as $department)
-                                                                @if($department->status == 1)
-                                                                    <option value="{{$department->id}}">{{$department->department_name}}</option>
-                                                                @endif
-                                                            @endforeach
+                                                             @foreach($department as $departmentName)
+                                                                <option @if($schoolStuff->department_id == $departmentName->id) selected @endif value="{{$departmentName->id}}">{{$departmentName->department_name}}</option>
+                                                             @endforeach
                                                         </select>
                                                         <div class="form-group">
                                                             <input type="file" name="image" class="form-control">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <a href="{{asset($schoolStuff->image)}}" data-lightbox="r1" data-title="{{$schoolStuff->name}}"><img width="100" src="{{asset($schoolStuff->image)}}"/></a>
                                                         </div>
                                                     </div>
                                                 </div>

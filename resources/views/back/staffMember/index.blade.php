@@ -32,7 +32,7 @@
                                     <tr>
                                         <td>{{$staff->id}}</td>
                                         @if($staff->image)
-                                        <td><a href="{{asset($staff->image)}}" data-lightbox="r1" data-title="title"><img src="{{asset($staff->image)}}"/></a></td>
+                                        <td><a href="{{asset($staff->image)}}" data-lightbox="r1" data-title="{{$staff->name}}"><img src="{{asset($staff->image)}}"/></a></td>
                                         @else
                                         <td><img src="{{asset('back/img/logo/logo.png')}}" data-lightbox="r1" width="200px" height="200px"/></td>
                                         @endif
@@ -50,8 +50,9 @@
                                             <td><i style="color:#85060c;" class="fa fa-times" title="Hayır"></i></td>
                                         @endif
                                         <td>
-                                            <a href="{{route('admin.teachers.edit',$staff->id)}}" title="Düzenle" class="btn btn-sm btn-primary col-6"><i class="fa fa-pencil"></i></a>
-                                            <a href="{{route('admin.teachers.destroy',$staff->id)}}" title="Sil" id="delete" class="btn btn-sm btn-danger col-6"><i class="fa fa-times"></i></a>
+                                            <a href="{{route('admin.teachers.edit',$staff->id)}}" title="Düzenle" class="btn btn-sm btn-primary col-4"><i class="fa fa-pencil"></i></a>
+                                            <a href="{{route('admin.teachers.destroy',$staff->id)}}" title="Sil" id="delete" class="btn btn-sm btn-danger col-4"><i class="fa fa-times"></i></a>
+                                            <a href="{{route('admin.user.create',$staff->id)}}" title="Kullanıcı Oluştur" class="btn btn-sm btn-success col-4"><i class="fa fa-user"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

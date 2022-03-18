@@ -38,11 +38,11 @@ class ClassController extends Controller
      */
     public function store(Request $request)
     {
-        $classes = new Classes;
-        $classes->class_name = $request->class_name;
-        $classes->teacher_of_class = $request->teacher_of_class;
-        $classes->quota = $request->quota;
-        $classes->save();
+        $class = new Classes;
+        $class->class_name = $request->class_name;
+        $class->teacher_of_class = $request->teacher_of_class;
+        $class->quota = $request->quota;
+        $class->save();
         toastr()->success('Başarılı', 'Sınıf Başarıyla Eklendi');
         return redirect()->back();
 
@@ -56,7 +56,10 @@ class ClassController extends Controller
      */
     public function show($id)
     {
-        //
+        $classes = Classes::findOrFail($id);
+        $classes->delete();
+        toastr()->success('Başarılı', 'Sınıf Başarıyla Silindi');
+        return redirect()->back();
     }
 
     /**
@@ -67,7 +70,9 @@ class ClassController extends Controller
      */
     public function edit($id)
     {
-        //
+        $teacher = SchoolStuff::all();
+        $classes = Classes::findOrFail($id);
+        return view('back.classes.edit', compact('classes'),compact('teacher'));
     }
 
     /**
@@ -79,7 +84,13 @@ class ClassController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $classes = Classes::findOrFail($id);
+        $classes->class_name = $request->class_name;
+        $classes->teacher_of_class = $request->teacher_of_class;
+        $classes->quota = $request->quota;
+        $classes->update();
+        toastr()->success('Başarılı', 'Sınıf Başarıyla Güncellendi');
+        return redirect()->back();
     }
 
     /**

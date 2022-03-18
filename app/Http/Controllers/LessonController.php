@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\SchoolStuff;
 use Illuminate\Http\Request;
 use App\Models\Lesson;
+use Illuminate\View\View;
 
 class LessonController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function index()
     {
@@ -22,7 +23,7 @@ class LessonController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function create()
     {
@@ -34,7 +35,6 @@ class LessonController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {

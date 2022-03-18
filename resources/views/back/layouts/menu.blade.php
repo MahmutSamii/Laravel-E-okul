@@ -32,6 +32,9 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="{{route('admin.user.index')}}"><span class="fa fa-user-circle-o" aria-hidden="true"></span> <span class="mini-click-non">Kullanıcılar</span></a>
+                    </li>
+                    <li>
                         <a class="has-arrow  ml-5" href="#" aria-expanded="false"><img src="{{asset('back/img/education.png')}}" width="20px" > <span class="mini-click-non">Sınıflar</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
                             <li><a title="All Courses" href="{{route('admin.classes.index')}}"><span class="mini-sub-pro">Bütün Sınıflar</span></a></li>

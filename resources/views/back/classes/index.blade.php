@@ -37,8 +37,8 @@
                                         @endforeach
                                         <td>{{$class->vacancy}}</td>
                                         <td>
-                                            <a href="{{route('admin.lessons.edit',$class->id)}}" title="Düzenle" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
-                                            <a href="{{route('admin.lessons.destroy',$class->id)}}" title="Sil" id="delete" class="btn btn-sm btn-danger" onclick="return control()" ><i class="fa fa-times"></i></a>
+                                            <a href="{{route('admin.classes.edit',$class->id)}}" title="Düzenle" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
+                                            <a href="{{route('admin.classes.destroy',$class->id)}}" title="Sil" id="delete" class="btn btn-sm btn-danger" onclick="return control()" ><i class="fa fa-times"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -52,30 +52,4 @@
     </div>
 </div>
 @include('back.layouts.footer')
-@section('js')
-    <script>
-        const deleteBtn = document.querySelector('#delete');
-        function control(event){
-            if (event && event.preventDefault) { event.preventDefault(); }
-            const url = $(this).attr('href');
-            Swal.fire({
-                title: 'Emin misiniz?',
-                text: "Bu Veriyi Silmek İstiyor musunuz?",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                cancelButtonText: 'İptal',
-                confirmButtonText: 'Evet Sil!'
-            }).then(function(value) {
-                if (value) {
-                    window.location.href = url;
-                }
-            });
-        }
-        deleteBtn.addEventListener('click',function (event) {
-            control(event);
-        });
-    </script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 

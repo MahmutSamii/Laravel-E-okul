@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Department;
 use App\Models\SchoolStuff;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class TeacherController extends Controller
 {
@@ -74,8 +75,9 @@ class TeacherController extends Controller
      */
     public function edit($id)
     {
+        $department = Department::get();
         $schoolStuff = SchoolStuff::findOrFail($id);
-        return view('back.staffMember.edit',compact('schoolStuff'));
+        return view('back.staffMember.edit',compact('schoolStuff'),compact('department'));
     }
 
     /**
@@ -87,7 +89,29 @@ class TeacherController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $teacher = SchoolStuff::findOrFail($id);
+        $teacher->department_id = $request->department;
+        $teacher->name = $request->name;
+        $teacher->address = $request->address;
+        $teacher->email = $request->email;
+        $teacher->phone = $request->phone;
+        $teacher->is_teacher = $request->is_teacher;
+        if ($request->image == ''){
+          $teacher->image = $teacher->image;
+        }
+        if ($request->hasFile('image')){
+            $destination = public_path('uploads').$teacher->image;
+            if (File::exists($destination)){
+               File::delete($destination);
+            }
+            $imageName = str_slug($request->name) . '.' . $request->image->getClientOriginalExtension();
+            $request->image->move(public_path('uploads'), $imageName);
+            $teacher->image = 'uploads/' . $imageName;
+        }
+        $teacher->updated_at = now();
+        $teacher->update();
+        toastr()->success('Başarılı', 'Eleman Başarıyla Güncellendi');
+        return redirect()->route('admin.teachers.index');
     }
 
     /**

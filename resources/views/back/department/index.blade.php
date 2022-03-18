@@ -23,19 +23,19 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($departments as $department)
+                                @foreach($department as $depart)
                                 <tr>
-                                    <td>{{$department->id}}</td>
-                                    <td>{{$department->department_name}}</td>
-                                    @if($department->status == 1)
+                                    <td>{{$depart->id}}</td>
+                                    <td>{{$depart->department_name}}</td>
+                                    @if($depart->status == 1)
                                     <td><i style="color:#0E993C;" class="fa fa-check" title="aktif"></i></td>
                                     @endif
-                                    @if($department->status == 0)
+                                    @if($depart->status == 0)
                                         <td><i style="color:#85060c;" class="fa fa-times" title="pasif"></i></td>
                                     @endif
                                     <td>
-                                        <a href="{{route('admin.departments.edit',$department->id)}}" title="Düzenle" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
-                                        <a href="{{route('admin.departments.destroy',$department->id)}}" title="Sil" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a>
+                                        <a href="{{route('admin.departments.edit',$depart->id)}}" title="Düzenle" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
+                                        <a href="{{route('admin.departments.destroy',$depart->id)}}" title="Sil" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
