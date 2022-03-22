@@ -2191,7 +2191,7 @@
   };
 
   /**
-   * Hides loader and shows back the button which was hidden by .showLoading()
+   * Hides loader and shows backdirector the button which was hidden by .showLoading()
    */
 
   function hideLoading() {

@@ -10,11 +10,11 @@ class LoginController extends Controller
 {
 
     public function dashboard(){
-        return view('back.dashboard');
+        return view('backdirector.dashboard');
     }
 
     public function teacherLogin(){
-        return view('back.auth.teacher');
+        return view('backdirector.auth.teacher');
     }
 
     public function teacherLoginPost(Request $request){

@@ -17,7 +17,7 @@ class TeacherController extends Controller
     public function index()
     {
         $schoolStuff = SchoolStuff::get();
-        return view('back.staffMember.index', compact('schoolStuff'));
+        return view('backdirector.staffMember.index', compact('schoolStuff'));
     }
 
     /**
@@ -28,7 +28,7 @@ class TeacherController extends Controller
     public function create()
     {
         $department = Department::get();
-        return view('back.staffMember.create', compact('department'));
+        return view('backdirector.staffMember.create', compact('department'));
     }
 
     /**
@@ -63,7 +63,14 @@ class TeacherController extends Controller
      */
     public function show($id)
     {
-
+        $schoolstuff = SchoolStuff::findOrFail($id);
+        $destination = public_path('uploads').$schoolstuff->image;
+        if (File::exists($destination)){
+            File::delete($destination);
+        }
+        $schoolstuff->delete();
+        toastr()->success('Başarılı', 'Eleman Başarıyla Silindi');
+        return redirect()->back();
 
     }
 
@@ -77,7 +84,7 @@ class TeacherController extends Controller
     {
         $department = Department::get();
         $schoolStuff = SchoolStuff::findOrFail($id);
-        return view('back.staffMember.edit',compact('schoolStuff'),compact('department'));
+        return view('backdirector.staffMember.edit',compact('schoolStuff'),compact('department'));
     }
 
     /**

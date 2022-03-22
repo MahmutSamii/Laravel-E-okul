@@ -1444,11 +1444,11 @@ for (var func in conversions) {
   // export rgb2hsl and ["rgb"]["hsl"]
   convert[from] = convert[from] || {};
 
-  convert[from][to] = convert[func] = (function(func) { 
+  convert[from][to] = convert[func] = (function(func) {
     return function(arg) {
       if (typeof arg == "number")
         arg = Array.prototype.slice.call(arguments);
-      
+
       var val = conversions[func](arg);
       if (typeof val == "string" || val === undefined)
         return val; // keyword
@@ -1476,12 +1476,12 @@ Converter.prototype.routeSpace = function(space, args) {
    }
    // color.rgb(10, 10, 10)
    if (typeof values == "number") {
-      values = Array.prototype.slice.call(args);        
+      values = Array.prototype.slice.call(args);
    }
 
    return this.setValues(space, values);
 };
-  
+
 /* Set the values for a space, invalidating cache */
 Converter.prototype.setValues = function(space, values) {
    this.space = space;
@@ -4050,7 +4050,7 @@ module.exports = function(Chart) {
 		},
 
 		/**
-		* Resets the chart back to it's state before the initial animation
+		* Resets the chart backdirector to it's state before the initial animation
 		*/
 		reset: function() {
 			this.resetElements();
@@ -5740,7 +5740,7 @@ module.exports = function(Chart) {
 		var height = boundingRect.bottom - boundingRect.top - paddingTop - paddingBottom;
 
 		// We divide by the current device pixel ratio, because the canvas is scaled up by that amount in each direction. However
-		// the backend model is in unscaled coordinates. Since we are going to deal with our model coordinates, we go back here
+		// the backend model is in unscaled coordinates. Since we are going to deal with our model coordinates, we go backdirector here
 		mouseX = Math.round((mouseX - boundingRect.left - paddingLeft) / (width) * canvas.width / chart.currentDevicePixelRatio);
 		mouseY = Math.round((mouseY - boundingRect.top - paddingTop) / (height) * canvas.height / chart.currentDevicePixelRatio);
 
@@ -7448,7 +7448,7 @@ module.exports = function(Chart) {
 					sinRotation = Math.sin(angleRadians);
 
 					if (sinRotation * originalLabelWidth > me.maxHeight) {
-						// go back one step
+						// go backdirector one step
 						labelRotation--;
 						break;
 					}
@@ -8454,7 +8454,7 @@ module.exports = function(Chart) {
 			helpers.each(bodyItem.after, maxLineWidth);
 		});
 
-		// Reset back to 0
+		// Reset backdirector to 0
 		widthPadding = 0;
 
 		// Footer width
@@ -8920,7 +8920,7 @@ module.exports = function(Chart) {
 				helpers.each(bodyItem.after, fillLineOfText);
 			});
 
-			// Reset back to 0 for after body
+			// Reset backdirector to 0 for after body
 			xLinePadding = 0;
 
 			// After body lines
@@ -11116,7 +11116,7 @@ module.exports = function(Chart) {
 	var DatasetScale = Chart.Scale.extend({
 		/**
 		* Internal function to get the correct labels. If data.xLabels or data.yLabels are defined, use those
-		* else fall back to data.labels
+		* else fall backdirector to data.labels
 		* @private
 		*/
 		getLabels: function() {

@@ -54,6 +54,7 @@ class CreateAllTables extends Migration
             $table->bigincrements('id');
             $table->string('name');
             $table->integer('student_no');
+            $table->string('classroom');
             $table->string('phone');
             $table->string('image');
             $table->string('parent_name');

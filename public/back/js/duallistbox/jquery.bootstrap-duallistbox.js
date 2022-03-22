@@ -751,7 +751,7 @@
                 }
             });
 
-            // If the earlier cached method gives a value back return the value,
+            // If the earlier cached method gives a value backdirector return the value,
             // otherwise return this to preserve chainability.
             return returns !== undefined ? returns : this;
         }

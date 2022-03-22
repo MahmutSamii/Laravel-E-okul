@@ -15,7 +15,7 @@ class DepartmentController extends Controller
     public function index()
     {
       $department = Department::get();
-      return view('back.department.index',compact('department'));
+      return view('backdirector.department.index',compact('department'));
     }
 
     /**
@@ -25,7 +25,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        return view('back.department.create');
+        return view('backdirector.department.create');
     }
 
     /**
@@ -69,7 +69,7 @@ class DepartmentController extends Controller
     public function edit($id)
     {
         $department = Department::findOrFail($id);
-        return view('back.department.edit',compact('department'));
+        return view('backdirector.department.edit',compact('department'));
     }
 
     /**

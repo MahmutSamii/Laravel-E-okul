@@ -3,7 +3,7 @@ import { swalClasses } from '../utils/classes.js'
 import privateProps from '../privateProps.js'
 
 /**
- * Hides loader and shows back the button which was hidden by .showLoading()
+ * Hides loader and shows backdirector the button which was hidden by .showLoading()
  */
 function hideLoading() {
   // do nothing if popup is closed

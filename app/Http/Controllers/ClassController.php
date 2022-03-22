@@ -16,7 +16,7 @@ class ClassController extends Controller
     public function index()
     {
         $classes = Classes::get();
-        return view('back.classes.index',compact('classes'));
+        return view('backdirector.classes.index',compact('classes'));
     }
 
     /**
@@ -27,7 +27,7 @@ class ClassController extends Controller
     public function create()
     {
          $teacher = SchoolStuff::all();
-         return view('back.classes.create',compact('teacher'));
+         return view('backdirector.classes.create',compact('teacher'));
     }
 
     /**
@@ -72,7 +72,7 @@ class ClassController extends Controller
     {
         $teacher = SchoolStuff::all();
         $classes = Classes::findOrFail($id);
-        return view('back.classes.edit', compact('classes'),compact('teacher'));
+        return view('backdirector.classes.edit', compact('classes'),compact('teacher'));
     }
 
     /**
