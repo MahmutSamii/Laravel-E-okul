@@ -16,6 +16,8 @@
         "postcss": "^8.1.14"
     },
     "dependencies": {
+        "fullcalendar": "^5.10.2",
+        "fullcalendar-scheduler": "^5.10.2",
         "lightbox2": "^2.11.3",
         "sweetalert2": "^11.4.4",
         "toastr": "^2.1.4"

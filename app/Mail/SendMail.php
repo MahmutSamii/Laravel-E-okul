@@ -28,6 +28,6 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('backdirector.auth.mail')->with('data',$this->data);
+        return $this->markdown('back.auth.mail')->with('data',$this->data);
     }
 }

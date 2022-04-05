@@ -11,4 +11,8 @@ class Lesson extends Model
     protected $fillable = ['lesson','status'];
     public $timestamps = false;
     use HasFactory;
+    public function lessonTeacher()
+    {
+        return $this->hasMany('App\Models\SchoolStuff', 'id', 'lecturer');
+    }
 }

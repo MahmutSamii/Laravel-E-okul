@@ -183,7 +183,7 @@
       To fix this, when we detect the right mouse button is pressed down, but not yet clicked, we
       set pointer-events to none on the nav div. This is so that the upcoming right-click event on
       the next mouseup will bubble down to the image. Once the right-click/contextmenu event occurs
-      we set the pointer events backdirector to auto for the nav div so it can capture hover and left-click
+      we set the pointer events back to auto for the nav div so it can capture hover and left-click
       events as usual.
      */
     this.$nav.on('mousedown', function(event) {

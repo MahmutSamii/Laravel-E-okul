@@ -17,7 +17,7 @@ class TeacherController extends Controller
     public function index()
     {
         $schoolStuff = SchoolStuff::get();
-        return view('backdirector.staffMember.index', compact('schoolStuff'));
+        return view('back.staffMember.index', compact('schoolStuff'));
     }
 
     /**
@@ -28,7 +28,7 @@ class TeacherController extends Controller
     public function create()
     {
         $department = Department::get();
-        return view('backdirector.staffMember.create', compact('department'));
+        return view('back.staffMember.create', compact('department'));
     }
 
     /**
@@ -84,7 +84,7 @@ class TeacherController extends Controller
     {
         $department = Department::get();
         $schoolStuff = SchoolStuff::findOrFail($id);
-        return view('backdirector.staffMember.edit',compact('schoolStuff'),compact('department'));
+        return view('back.staffMember.edit',compact('schoolStuff'),compact('department'));
     }
 
     /**

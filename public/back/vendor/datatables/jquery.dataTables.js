@@ -2322,7 +2322,7 @@
 					}
 				}
 
-				// Fall backdirector - if no type was detected, always use string
+				// Fall back - if no type was detected, always use string
 				if ( ! col.sType ) {
 					col.sType = 'string';
 				}
@@ -3960,7 +3960,7 @@
 			// DataTables 1.9- compatibility
 			oSettings.fnServerData.call( instance,
 				oSettings.sAjaxSource,
-				$.map( data, function (val, key) { // Need to convert backdirector to 1.9 trad format
+				$.map( data, function (val, key) { // Need to convert back to 1.9 trad format
 					return { name: key, value: val };
 				} ),
 				callback,
@@ -5505,7 +5505,7 @@
 		/* Adjust the position of the header in case we loose the y-scrollbar */
 		divBody.trigger('scroll');
 
-		// If sorting or filtering has occurred, jump the scrolling backdirector to the top
+		// If sorting or filtering has occurred, jump the scrolling back to the top
 		// only if we aren't holding the position
 		if ( (settings.bSorted || settings.bFiltered) && ! settings._drawHold ) {
 			divBodyEl.scrollTop = 0;
@@ -6643,7 +6643,7 @@
 	 * an array store of callback functions that can then all be called together.
 	 *  @param {object} oSettings dataTables settings object
 	 *  @param {string} sStore Name of the array storage for the callbacks in oSettings
-	 *  @param {function} fn Function to be called backdirector
+	 *  @param {function} fn Function to be called back
 	 *  @param {string} sName Identifying name for the callback (i.e. a label)
 	 *  @memberof DataTable#oApi
 	 */
@@ -7374,7 +7374,7 @@
 					undefined;
 			}
 
-			// Non-API return - just fire it backdirector
+			// Non-API return - just fire it back
 			return ret;
 		} );
 	};
@@ -7410,7 +7410,7 @@
 		return $(nodes)
 			.filter( selector )
 			.map( function (i) {
-				// Need to translate backdirector from the table node to the settings
+				// Need to translate back from the table node to the settings
 				var idx = $.inArray( this, nodes );
 				return a[ idx ];
 			} )
@@ -9438,7 +9438,7 @@
 				classes.sSortableAsc+' '+classes.sSortableDesc+' '+classes.sSortableNone
 			);
 
-			// Add the TR elements backdirector into the table in their original order
+			// Add the TR elements back into the table in their original order
 			jqTbody.children().detach();
 			jqTbody.append( rows );
 
@@ -9458,7 +9458,7 @@
 					.css( 'width', settings.sDestroyWidth )
 					.removeClass( classes.sTable );
 
-				// If the were originally stripe classes - then we add them backdirector here.
+				// If the were originally stripe classes - then we add them back here.
 				// Note this is not fool proof (for example if not all rows had stripe
 				// classes - but it's a good effort without getting carried away
 				ien = settings.asDestroyStripes.length;
@@ -12409,7 +12409,7 @@
 		 *      * `{string}` The type call data requested - this will be 'set' when
 		 *        setting data or 'filter', 'display', 'type', 'sort' or undefined
 		 *        when gathering data. Note that when `undefined` is given for the
-		 *        type DataTables expects to get the raw data for the object backdirector<
+		 *        type DataTables expects to get the raw data for the object back<
 		 *      * `{*}` Data to set when the second parameter is 'set'.
 		 *    * Return:
 		 *      * The return value from the function is not required when 'set' is
@@ -12798,7 +12798,7 @@
 		 * be exceptionally useful to know what columns are being displayed on the
 		 * client side, and to map these to database fields. When defined, the names
 		 * also allow DataTables to reorder information from the server if it comes
-		 * backdirector in an unexpected order (i.e. if you switch your columns around on the
+		 * back in an unexpected order (i.e. if you switch your columns around on the
 		 * client-side, your server-side code does not also need updating).
 		 *  @type string
 		 *  @default <i>Empty string</i>
@@ -13584,14 +13584,14 @@
 		"aoStateLoad": [],
 
 		/**
-		 * State that was saved. Useful for backdirector reference
+		 * State that was saved. Useful for back reference
 		 *  @type object
 		 *  @default null
 		 */
 		"oSavedState": null,
 
 		/**
-		 * State that was loaded. Useful for backdirector reference
+		 * State that was loaded. Useful for back reference
 		 *  @type object
 		 *  @default null
 		 */

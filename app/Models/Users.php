@@ -12,4 +12,9 @@ class Users extends Authentication
     protected $fillable = ['username','email','resource','resource_id','password'];
     public $timestamps = false;
     use HasFactory;
+
+    function userDepartment()
+    {
+        return $this->hasMany('App\Models\Department', 'id', 'department_id');
+    }
 }

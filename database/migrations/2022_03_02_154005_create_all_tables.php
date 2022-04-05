@@ -35,10 +35,8 @@ class CreateAllTables extends Migration
         Schema::create('class', function (Blueprint $table) {
             $table->bigincrements('id');
             $table->string('class_name');
-            $table->integer('num_of_students')->nullable();
             $table->string('teacher_of_class');
             $table->integer('quota')->nullable();
-            $table->integer('vacancy')->nullable();
             $table->timestamps();
         });
 
@@ -73,7 +71,9 @@ class CreateAllTables extends Migration
             $table->bigincrements('id');
             $table->unsignedBiginteger('student_id');
             $table->unsignedBiginteger('lesson_id');
-            $table->integer('mark');
+            $table->integer('midterm_exam')->nullable();
+            $table->integer('final_exam')->nullable();
+            $table->integer('makeup_exam')->nullable();
             $table->timestamps();
         });
 

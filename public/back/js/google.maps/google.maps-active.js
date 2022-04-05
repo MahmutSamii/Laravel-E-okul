@@ -69,7 +69,7 @@ function initMap() {
         });
 
         map.addListener('center_changed', function() {
-          // 3 seconds after the center of the map has changed, pan backdirector to the
+          // 3 seconds after the center of the map has changed, pan back to the
           // marker.
           window.setTimeout(function() {
             map6.panTo(marker.getPosition());

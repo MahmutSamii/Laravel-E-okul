@@ -1,0 +1,14 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class StudentLesson extends Model
+{
+    protected $table = 'student_lesson';
+    protected $fillable = ['student_id','lesson_id','created_at','updated_at'];
+    public $timestamps = false;
+    use HasFactory;
+}
