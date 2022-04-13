@@ -19,7 +19,7 @@ class ExamController extends Controller
         $student = Student::findOrFail($id);
         $schoolstuff = SchoolStuff::where('id', Auth::user()->resource_id)->first();
         $lesson = Lesson::where('lecturer', $schoolstuff->id)->first();
-        $exam = Exam::where('student_id', $id)->first();
+        $exam = Exam::where('lesson_id',$lesson->id)->where('student_id',$student->id)->first();
         $class = Classes::where('teacher_of_class',$schoolstuff->id)->first();
         return view('backteacher.class.create', compact('student', 'lesson','exam','class'));
     }

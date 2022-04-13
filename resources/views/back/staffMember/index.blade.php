@@ -31,9 +31,9 @@
                                     <tr>
                                         <td>{{$staff->id}}</td>
                                         @if($staff->image)
-                                        <td><a href="{{asset($staff->image)}}" data-lightbox="r1" data-title="{{$staff->name}}"><img src="{{asset($staff->image)}}"/></a></td>
+                                        <td><a href="{{asset($staff->image)}}" data-lightbox="r1" data-title="{{$staff->name}}"><img width="150px" height="150px" src="{{asset($staff->image)}}"/></a></td>
                                         @else
-                                        <td><img src="{{asset('back/img/logo/logo.png')}}" data-lightbox="r1" width="200px" height="200px"/></td>
+                                        <td><img src="{{asset('back/img/logo/logo.png')}}" data-lightbox="r1" width="150px" height="150px"/></td>
                                         @endif
                                         @foreach($staff->departments as $department)
                                         <td>{{$department->department_name}}</td>
@@ -49,25 +49,7 @@
                                         @endif
                                         <td>
                                             <a href="{{route('admin.teachers.edit',$staff->id)}}" title="Düzenle" class="btn btn-sm btn-primary col-4"><i class="fa fa-pencil"></i></a>
-                                            <a class="Warning Warning-color btn btn-sm btn-danger" id="delete" href="" title="Sil" data-toggle="modal" data-target="#WarningModalftblack"><i class="fa fa-times"></i></a>
-                                            <div id="WarningModalftblack" class="modal modal-edu-general Customwidth-popup-WarningModal PrimaryModal-bgcolor fade" role="dialog">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-close-area modal-close-df">
-                                                            <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <span class="educate-icon educate-warning modal-check-pro information-icon-pro"></span>
-                                                            <h2>Uyarı!</h2>
-                                                            <p>Bu Eleman Kaydını Silmek İstediğinizden Emin misiniz!</p>
-                                                        </div>
-                                                        <div class="modal-footer footer-modal-admin warning-md">
-                                                            <a data-dismiss="modal" href="{{route('admin.teachers.index')}}">İptal</a>
-                                                            <a href="{{route('admin.teachers.destroy',$staff->id)}}">Evet!</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <a class="Warning Warning-color btn btn-sm btn-danger" id="delete" href="{{route('admin.teachers.destroy',$staff->id)}}" title="Sil"><i class="fa fa-times"></i></a>
                                             <a href="{{route('admin.user.create',$staff->id)}}" title="Kullanıcı Oluştur" class="btn btn-sm btn-success col-4"><i class="fa fa-user"></i></a>
                                         </td>
                                     </tr>
@@ -82,5 +64,6 @@
     </div>
 </div>
 @include('back.layouts.footer')
+
 
 

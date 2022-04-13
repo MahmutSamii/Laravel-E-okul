@@ -3,6 +3,21 @@
 </div>
 
 
+<script>
+    var check = function () {
+        if (document.getElementById('password').value == '' || document.getElementById('confirm_password').value == '') {
+            document.getElementById('message').innerHTML = '';
+        } else if (document.getElementById('password').value ==
+            document.getElementById('confirm_password').value) {
+            document.getElementById('message').style.color = 'green';
+            document.getElementById('message').innerHTML = 'Şifreler eşleşiyor';
+        } else {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = 'Şifreler eşleşmiyor';
+        }
+    }
+</script>
+
 <!-- jquery
     ============================================ -->
 <script src="{{asset('back/js/vendor/jquery-1.12.4.min.js')}}"></script>

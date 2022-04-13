@@ -15,21 +15,17 @@
                         </a>
                     </li>
                     <li>
-                        <a title="Landing Page" href="#" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Takvim</span></a>
-                    </li>
-                    <li>
                         <a class="has-arrow" href="#" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Genel İşlemler</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="Bütün ELemanlar" href="#"><span class="mini-sub-pro">Ders Programı</span></a></li>
-                            <li><a title="Eleman Ekle" href="#"><span class="mini-sub-pro">Alınan Dersler</span></a></li>
-                            <li><a title="Eleman Ekle" href="#"><span class="mini-sub-pro">Sınav Takvimi</span></a></li>
+                            <li><a title="Alınan Dersler" href="{{route('student.index')}}"><span class="mini-sub-pro">Alınan Dersler</span></a></li>
+                            <li><a title="Sınav Takvimi" href="{{route('student.examdate.index')}}"><span class="mini-sub-pro">Sınav Takvimi</span></a></li>
                         </ul>
                     </li>
                     <li>
                         <a class="has-arrow" href="#" aria-expanded="false"><span class="educate-icon educate-student icon-wrap"></span> <span class="mini-click-non">Ders İşlemleri</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="All Students" href="{{route('student.exam.index')}}"><span class="mini-sub-pro">Not Listesi</span></a></li>
-                            <li><a title="Add Students" href="{{route('student.lesson.index')}}"><span class="mini-sub-pro">Ders Kayıt</span></a></li>
+                            <li><a title="Not Listesi" href="{{route('student.exam.index')}}"><span class="mini-sub-pro">Not Listesi</span></a></li>
+                            <li><a title="Ders Kayıt" href="{{route('student.lesson.index')}}"><span class="mini-sub-pro">Ders Kayıt</span></a></li>
                         </ul>
                     </li>
                 </ul>
@@ -73,15 +69,9 @@
                                                     <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                 </a>
                                                 <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                    <li><a href="#"><span class="edu-icon edu-home-admin author-log-ic"></span>My Account</a>
+                                                    <li><a href="{{route('student.settings.index')}}"><span class="edu-icon edu-home-admin author-log-ic"></span>Profil Ayarları</a>
                                                     </li>
-                                                    <li><a href="#"><span class="edu-icon edu-user-rounded author-log-ic"></span>My Profile</a>
-                                                    </li>
-                                                    <li><a href="#"><span class="edu-icon edu-money author-log-ic"></span>User Billing</a>
-                                                    </li>
-                                                    <li><a href="#"><span class="edu-icon edu-settings author-log-ic"></span>Settings</a>
-                                                    </li>
-                                                    <li><a href="{{route('admin.logout')}}"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>
+                                                    <li><a href="{{route('admin.logout')}}"><span class="edu-icon edu-locked author-log-ic"></span>Çıkış Yap</a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -106,9 +96,7 @@
                                     </li>
                                     <li><a data-toggle="collapse" data-target="#demoevent" href="#">Genel İşlemler <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
                                         <ul id="demoevent" class="collapse dropdown-header-top">
-                                            <li><a href="#">Ders Programı</a>
-                                            </li>
-                                            <li><a href="#">Sınav Takvimi</a>
+                                            <li><a href="{{route('student.examdate.index')}}">Sınav Takvimi</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -127,27 +115,7 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Menu end -->
-        <div class="breadcome-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="breadcome-list">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="breadcome-heading">
-                                        <form role="search" class="sr-input-func">
-                                            <input type="text" placeholder="Search..." class="search-int form-control">
-                                            <a href="#"><i class="fa fa-search"></i></a>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
 
 

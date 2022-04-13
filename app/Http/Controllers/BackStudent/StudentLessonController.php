@@ -12,9 +12,17 @@ use Illuminate\Support\Facades\Auth;
 class StudentLessonController extends Controller
 {
     public function index(){
+
         $lessons = Lesson::get();
         $user = Student::where('student_no',Auth::user()->email)->first();
-        return view('backstudent.class.create',compact('lessons','user'));
+        $check = StudentLesson::where('student_id',$user->id)->first();
+        return view('backstudent.class.create',compact('lessons','user','check'));
+    }
+
+    public function studentIndex() {
+        $check = Student::where('student_no',Auth::user()->email)->first();
+        $checkLesson = StudentLesson::where('student_id',$check->id)->get();
+        return view('backstudent.class.index',compact('checkLesson'));
     }
 
     public function create(Request $request,$id){

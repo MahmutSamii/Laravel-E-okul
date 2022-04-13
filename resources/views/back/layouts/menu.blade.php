@@ -15,9 +15,6 @@
                         </a>
                     </li>
                     <li>
-                        <a title="Landing Page" href="#" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Takvim</span></a>
-                    </li>
-                    <li>
                         <a class="has-arrow" href="#" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Elemanlar</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
                             <li><a title="Bütün ELemanlar" href="{{route('admin.teachers.index')}}"><span class="mini-sub-pro">Bütün Elemanlar</span></a></li>
@@ -96,15 +93,7 @@
                                                     <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                 </a>
                                                 <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                    <li><a href="#"><span class="edu-icon edu-home-admin author-log-ic"></span>My Account</a>
-                                                    </li>
-                                                    <li><a href="#"><span class="edu-icon edu-user-rounded author-log-ic"></span>My Profile</a>
-                                                    </li>
-                                                    <li><a href="#"><span class="edu-icon edu-money author-log-ic"></span>User Billing</a>
-                                                    </li>
-                                                    <li><a href="#"><span class="edu-icon edu-settings author-log-ic"></span>Settings</a>
-                                                    </li>
-                                                    <li><a href="{{route('admin.logout')}}"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>
+                                                    <li><a href="{{route('admin.logout')}}"><span class="edu-icon edu-locked author-log-ic"></span>Çıkış Yap</a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -179,18 +168,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="breadcome-list">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="breadcome-heading">
-                                        <form role="search" class="sr-input-func">
-                                            <input type="text" placeholder="Search..." class="search-int form-control">
-                                            <a href="#"><i class="fa fa-search"></i></a>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>

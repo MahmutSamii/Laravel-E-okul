@@ -17,11 +17,9 @@
                                 <thead>
                                 <tr>
                                     <th data-field="id">ID</th>
-                                    <th data-field="department_name">Sınıf Adı</th>
+                                    <th data-field="class_name">Sınıf Adı</th>
                                     <th data-field="quota">Kontenjan</th>
-                                    <th data-field="num_of_students">Mevcut Öğrenci Sayısı</th>
                                     <th data-field="teacher_of_class">Sınıf Öğretmeni</th>
-                                    <th data-field="vacancy">Boş Yer</th>
                                     <th>İşlemler</th>
                                 </tr>
                                 </thead>
@@ -31,32 +29,12 @@
                                         <td>{{$class->id}}</td>
                                         <td>{{$class->class_name}}</td>
                                         <td>{{$class->quota}}</td>
-                                        <td>{{$class->num_of_students}}</td>
                                         @foreach($class->schoolStuffs as $name)
                                           <td>{{$name->name}}</td>
                                         @endforeach
-                                        <td>{{$class->vacancy}}</td>
                                         <td>
                                             <a href="{{route('admin.classes.edit',$class->id)}}" title="Düzenle" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
-                                            <a class="Warning Warning-color btn btn-sm btn-danger" id="delete" href="" title="Sil" data-toggle="modal" data-target="#WarningModalftblack"><i class="fa fa-times"></i></a>
-                                            <div id="WarningModalftblack" class="modal modal-edu-general Customwidth-popup-WarningModal PrimaryModal-bgcolor fade" role="dialog">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-close-area modal-close-df">
-                                                            <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <span class="educate-icon educate-warning modal-check-pro information-icon-pro"></span>
-                                                            <h2>Uyarı!</h2>
-                                                            <p>Bu Sınıf Kaydını Silmek İstediğinizden Emin misiniz!</p>
-                                                        </div>
-                                                        <div class="modal-footer footer-modal-admin warning-md">
-                                                            <a data-dismiss="modal" href="{{route('admin.classes.index')}}">İptal</a>
-                                                            <a href="{{route('admin.classes.destroy',$class->id)}}">Evet!</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <a class="Warning Warning-color btn btn-sm btn-danger" id="delete" href="{{route('admin.classes.destroy',$class->id)}}" title="Sil" data-toggle="modal" data-target="#WarningModalftblack"><i class="fa fa-times"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -40,6 +40,14 @@ class CreateAllTables extends Migration
             $table->timestamps();
         });
 
+        Schema::create('class_data', function (Blueprint $table) {
+            $table->bigincrements('id');
+            $table->integer('class_id');
+            $table->integer('lesson_id');
+            $table->integer('teacher_id');
+            $table->timestamps();
+        });
+
         Schema::create('lesson', function (Blueprint $table) {
             $table->bigincrements('id');
             $table->string('lesson');
@@ -77,6 +85,13 @@ class CreateAllTables extends Migration
             $table->timestamps();
         });
 
+        Schema::create('exam_date', function (Blueprint $table) {
+            $table->bigincrements('id');
+            $table->string('lesson_name');
+            $table->string('exam_name');
+            $table->dateTime('date');
+        });
+
         Schema::create('school_stuff', function (Blueprint $table) {
             $table->bigincrements('id');
             $table->unsignedBiginteger('department_id');
@@ -98,6 +113,8 @@ class CreateAllTables extends Migration
             $table->unsignedBiginteger('who_shared');
             $table->timestamps();
         });
+
+
     }
 
     /**

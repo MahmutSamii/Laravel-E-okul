@@ -26,13 +26,26 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($check as $variable)
                                     <tr>
-                                        <td>{{$check->id}}</td>
-                                        <td>{{$lessonName->lesson}}</td>
-                                        <td>{{$check->midterm_exam}}</td>
-                                        <td>{{$check->final_exam}}</td>
-                                        @if($check->makeup_exam)
-                                            <td> {{$check->makeup_exam}}</td>
+                                        @if ($variable->makeup_exam)
+                                            <input type="hidden" {{$midtermExamAverage = ($variable->midterm_exam*20)/100}}>
+                                            <input type="hidden" {{$finalExamAverage = ($variable->makeup_exam*80)/100}}>
+                                            <input type="hidden" {{$average = ($midtermExamAverage+$finalExamAverage)}}>
+                                        @else
+                                            <input type="hidden" {{$midtermExamAverage = ($variable->midterm_exam*20)/100}}>
+                                            <input type="hidden" {{$finalExamAverage = ($variable->final_exam*80)/100}}>
+                                            <input type="hidden" {{$average = ($midtermExamAverage+$finalExamAverage)}}>
+                                        @endif
+                                        <td>{{$variable->id}}</td>
+                                        <input type="hidden" {{$lessonName =  \App\Models\Lesson::where('id',$variable->lesson_id)->get()}}>
+                                         @foreach($lessonName as $lesson)
+                                        <td>{{$lesson->lesson}}</td>
+                                         @endforeach
+                                        <td>{{$variable->midterm_exam}}</td>
+                                        <td>{{$variable->final_exam}}</td>
+                                        @if($variable->makeup_exam)
+                                            <td> {{$variable->makeup_exam}}</td>
                                         @else
                                             <td>Sonuçlandırılmadı</td>
                                         @endif
@@ -43,6 +56,7 @@
                                             <td>Kaldı</td>
                                         @endif
                                     </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

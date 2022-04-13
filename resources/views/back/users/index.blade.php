@@ -19,7 +19,6 @@
                                     <th data-field="id">ID</th>
                                     <th data-field="username">Ad Soyad</th>
                                     <th data-field="email">E-mail</th>
-                                    <th data-field="department_id">Departman</th>
                                     <th>İşlemler</th>
                                 </tr>
                                 </thead>
@@ -29,29 +28,36 @@
                                         <td>{{$user->id}}</td>
                                         <td>{{$user->username}}</td>
                                         <td>{{$user->email}}</td>
-                                        @foreach($user->userDepartment as $department)
-                                        <td>{{$department->department_name}}</td>
-                                        @endforeach
                                         <td>
-                                            <a class="Warning Warning-color btn btn-sm btn-danger" id="delete" href="" title="Sil" data-toggle="modal" data-target="#WarningModalftblack"><i class="fa fa-times"></i></a>
-                                            <div id="WarningModalftblack" class="modal modal-edu-general Customwidth-popup-WarningModal PrimaryModal-bgcolor fade" role="dialog">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-close-area modal-close-df">
-                                                            <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <span class="educate-icon educate-warning modal-check-pro information-icon-pro"></span>
-                                                            <h2>Uyarı!</h2>
-                                                            <p>Bu Kullanıcı Kaydını Silmek İstediğinizden Emin misiniz!</p>
-                                                        </div>
-                                                        <div class="modal-footer footer-modal-admin warning-md">
-                                                            <a data-dismiss="modal" href="{{route('admin.user.index')}}">İptal</a>
-                                                            <a href="{{route('admin.user.destroy',$user->id)}}">Evet!</a>
+                                            <a class="Warning Warning-color btn btn-sm btn-danger" id="delete" href=""
+                                               title="Sil" data-toggle="modal" data-target="#WarningModalftblack"><i
+                                                    class="fa fa-times"></i></a>
+                                            @foreach($users as $id)
+                                                <div id="WarningModalftblack"
+                                                     class="modal modal-edu-general Customwidth-popup-WarningModal PrimaryModal-bgcolor fade"
+                                                     role="dialog">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-close-area modal-close-df">
+                                                                <a class="close" data-dismiss="modal" href="#"><i
+                                                                        class="fa fa-close"></i></a>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <span
+                                                                    class="educate-icon educate-warning modal-check-pro information-icon-pro"></span>
+                                                                <h2>Uyarı!</h2>
+                                                                <p>Bu Kullanıcı {{$id->id}} Kaydını Silmek
+                                                                    İstediğinizden Emin misiniz!</p>
+                                                            </div>
+                                                            <div class="modal-footer footer-modal-admin warning-md">
+                                                                <a data-dismiss="modal"
+                                                                   href="{{route('admin.user.index')}}">İptal</a>
+                                                                <a href="{{route('admin.user.destroy',$id->id)}}">Evet!</a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            @endforeach
                                         </td>
                                     </tr>
                                 @endforeach

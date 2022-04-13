@@ -65,8 +65,8 @@
 <div class="error-pagewrap">
     <div class="error-page-int">
         <div class="text-center m-b-md custom-login">
-            <h3>Lütfen Giriş Bilgilerinizi Giriniz</h3>
-            <p id="text">Öğretmen Girişi!</p>
+            <h3>Lütfen Giriş Bilgilerinizi Oluşturunuz</h3>
+            <p id="text">Öğrenci Şifre Oluştur!</p>
         </div>
         <a href="{{route('teacherLogin')}}" class="btn btn-primary btn-sm">Geri</a>
         <div class="content-error">

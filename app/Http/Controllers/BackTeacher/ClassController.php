@@ -5,9 +5,6 @@ namespace App\Http\Controllers\BackTeacher;
 use App\Http\Controllers\Controller;
 use App\Models\ClassData;
 use App\Models\Classes;
-use App\Models\Department;
-use App\Models\Exam;
-use App\Models\Lesson;
 use App\Models\SchoolStuff;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -22,18 +19,16 @@ class ClassController extends Controller
      */
     public function index()
     {
-       $schoolstuff = SchoolStuff::where('id', Auth::user()->resource_id)->first();
-       $classData = ClassData::where('teacher_id',$schoolstuff->id)->get();
-       dd($classData);
-       $class = Classes::where('teacher_of_class',$schoolstuff->id)->get();
-       $numOfStudent = Student::where('classroom',$classData->class_id)->count();
-       return view('backteacher.class.index',compact('classData','numOfStudent','class'));
+        $schoolstuff = SchoolStuff::where('id', Auth::user()->resource_id)->first();
+        $classData = ClassData::where('teacher_id', $schoolstuff->id)->get();
+        return view('backteacher.class.index', compact( 'classData'));
     }
 
-    public function indexStudent($id){
-        $students = Student::where('classroom',$id)->get();
-        $class = Classes::where('id',$id)->first();
-        return view('backteacher.class.studentIndex',compact('students','class'));
+    public function indexStudent($id)
+    {
+        $students = Student::where('classroom', $id)->get();
+        $class = Classes::where('id', $id)->first();
+        return view('backteacher.class.studentIndex', compact('students', 'class'));
     }
 
     /**
@@ -49,18 +44,18 @@ class ClassController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$id)
+    public function store(Request $request, $id)
     {
-       dd($id);
+        dd($id);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -71,7 +66,7 @@ class ClassController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -82,8 +77,8 @@ class ClassController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -94,7 +89,7 @@ class ClassController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

@@ -8,7 +8,6 @@
                 <div class="product-payment-inner-st">
                     <ul id="myTabedu1" class="tab-review-design">
                         <li class="active"><a href="#description">Eleman Ekle</a></li>
-                        <li><a href="#reviews"> Kullanıcı Oluştur</a></li>
                     </ul>
                     <div id="myTabContent" class="tab-content custom-product-edit">
                         <div class="product-tab-list tab-pane fade active in" id="description">
@@ -74,31 +73,6 @@
                                                     </div>
                                                 </div>
                                             </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-tab-list tab-pane fade" id="reviews">
-                            <div class="row">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="review-content-section">
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <form id="acount-infor" action="#" class="acount-infor">
-                                                    <div class="devit-card-custom">
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" name="email"
-                                                                   placeholder="Email">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input name="password" type="password" class="form-control"
-                                                                   placeholder="Şifre">
-                                                        </div>
-                                                        <a href="#" class="btn btn-primary waves-effect waves-light">Ekle</a>
-                                                    </div>
-                                                </form>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>

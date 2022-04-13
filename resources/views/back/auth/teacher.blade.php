@@ -76,7 +76,7 @@
                             {{$errors->first()}}
                         </div>
                     @endif
-                    <form action="#" method="post" id="loginForm">
+                    <form action="{{route('teacherLogin.post')}}" method="post" id="loginForm">
                         @csrf
                         <div class="form-group">
                             <label class="control-label" id="userName" for="username">Kullanıcı Adı</label>

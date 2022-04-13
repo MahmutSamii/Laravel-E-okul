@@ -15,7 +15,7 @@
                         </a>
                     </li>
                     <li>
-                        <a title="Landing Page" href="{{route('teacher.calendar.index')}}" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Takvim</span></a>
+                        <a href="{{route('teacher.create.exam.date')}}" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Sınav Takvimi</span></a>
                     </li>
                     <li>
                         <a class="has-arrow" href="#" aria-expanded="false"><img src="{{asset('back/img/education.png')}}" width="20px" > <span class="mini-click-non">Sınıflarım</span></a>
@@ -64,15 +64,9 @@
                                                     <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                 </a>
                                                 <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                    <li><a href="#"><span class="edu-icon edu-home-admin author-log-ic"></span>My Account</a>
+                                                    <li><a href="{{route('teacher.settings.index')}}"><span class="edu-icon edu-user-rounded author-log-ic"></span>Profil Ayarları</a>
                                                     </li>
-                                                    <li><a href="#"><span class="edu-icon edu-user-rounded author-log-ic"></span>My Profile</a>
-                                                    </li>
-                                                    <li><a href="#"><span class="edu-icon edu-money author-log-ic"></span>User Billing</a>
-                                                    </li>
-                                                    <li><a href="#"><span class="edu-icon edu-settings author-log-ic"></span>Settings</a>
-                                                    </li>
-                                                    <li><a href="{{route('admin.logout')}}"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>
+                                                    <li><a href="{{route('admin.logout')}}"><span class="edu-icon edu-locked author-log-ic"></span>Çıkış Yap</a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -95,7 +89,6 @@
                                 <ul class="mobile-menu-nav">
                                     <li><a data-toggle="collapse" data-target="#Charts" href="{{route('teacher.anasayfa')}}">Anasayfa <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
                                     </li>
-                                    <li><a data-toggle="collapse" data-target="#demolibra" href="#">Takvim <span class="admin-project-icon edu-icon edu-down-arrow"></span></a></li>
                                     <li><a data-toggle="collapse" data-target="#democrou" href="#"> Sınıflarım<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
                                         <ul id="democrou" class="collapse dropdown-header-top">
                                             <li><a href="{{route('teacher.class.index')}}">Girdiğim Sınıflar</a>
@@ -104,27 +97,6 @@
                                     </li>
                                 </ul>
                             </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile Menu end -->
-        <div class="breadcome-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="breadcome-list">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="breadcome-heading">
-                                        <form role="search" class="sr-input-func">
-                                            <input type="text" placeholder="Search..." class="search-int form-control">
-                                            <a href="#"><i class="fa fa-search"></i></a>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

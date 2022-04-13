@@ -9,10 +9,14 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentPasswordController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\BackTeacher\ExamController;
-use App\Http\Controllers\BackTeacher\CalendarController;
+use App\Http\Controllers\BackTeacher\ExamDateController;
 use App\Http\Controllers\BackStudent\StudentLessonController;
 use App\Http\Controllers\BackStudent\StudentExamController;
+use App\Http\Controllers\BackStudent\StudentSettingsController;
+use App\Http\Controllers\BackStudent\StudentPasswordUpdateController;
+use App\Http\Controllers\BackTeacher\SettingsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +31,7 @@ use App\Http\Controllers\BackStudent\StudentExamController;
 
 
 
-Route::get('/teacherLogin',[LoginController::class,'teacherLogin'])->name('teacherLogin');
+Route::get('/',[LoginController::class,'teacherLogin'])->name('teacherLogin');
 Route::post('/teacherLogin',[LoginController::class,'teacherLoginPost'])->name('teacherLogin.post');
 
 Route::get('/student/create/password',[StudentPasswordController::class,'index'])->name('student.create.password');
@@ -59,6 +63,9 @@ Route::prefix('admin')->middleware('authenticated')->name('admin.')->group(funct
 
 Route::prefix('teacher')->middleware('authenticated')->name('teacher.')->group(function(){
     Route::get('/anasayfa',[LoginController::class,'teacherDashboard'])->name('anasayfa');
+    //Exam Date Controller
+    Route::get('exam_date',[ExamDateController::class,'create'])->name('create.exam.date');
+    Route::post('exam_date',[ExamDateController::class,'store'])->name('store.exam.date');
     //Class Controller
     Route::resource('class',\App\Http\Controllers\BackTeacher\ClassController::class);
     Route::get('class/{id}/students',[\App\Http\Controllers\BackTeacher\ClassController::class,'indexStudent'])->name('index.student');
@@ -66,8 +73,11 @@ Route::prefix('teacher')->middleware('authenticated')->name('teacher.')->group(f
     Route::get('class/students/{id}/points',[ExamController::class,'createNotes'])->name('create.student');
     Route::post('class/students/{id}/points/create',[ExamController::class,'storePoint'])->name('store.student');
     Route::post('class/students/{id}/points/update',[ExamController::class,'updatePoint'])->name('update.student');
-    //Calendar Controller
-    Route::resource('calendar',CalendarController::class);
+    //Settings Controller
+    Route::get('/hesap-ayarlari',[SettingsController::class,'index'])->name('settings.index');
+    Route::post('/profil/{id}',[SettingsController::class,'updateProfile'])->name('settings.update.profile');
+    //Password Update Controller
+    Route::post('/password-update/{id}',[PasswordController::class,'update'])->name('password.update');
     Route::get('/cikis',[LoginController::class,'logout'])->name('logout');
 });
 
@@ -75,8 +85,15 @@ Route::prefix('teacher')->middleware('authenticated')->name('teacher.')->group(f
 Route::prefix('student')->middleware('authenticated')->name('student.')->group(function(){
     Route::get('/anasayfa',[LoginController::class,'studentDashboard'])->name('anasayfa');
     Route::get('/ders-kayit',[StudentLessonController::class,'index'])->name('lesson.index');
+    Route::get('/dersler',[StudentLessonController::class,'studentIndex'])->name('index');
     Route::post('/ders-kayit/{id}/create',[StudentLessonController::class,'create'])->name('lesson.create');
     Route::get('/ders-notlari',[StudentExamController::class,'index'])->name('exam.index');
+    Route::get('/sinav-tarihleri',[ExamDateController::class,'index'])->name('examdate.index');
+    //Settings Controller
+    Route::get('/hesap-ayarlari',[StudentSettingsController::class,'index'])->name('settings.index');
+    Route::post('/profil/{id}',[StudentSettingsController::class,'updateProfile'])->name('settings.update.profile');
+    //Password Update Controller
+    Route::post('/password-update/{id}',[StudentPasswordUpdateController::class,'update'])->name('password.update');
 
     Route::get('/cikis',[LoginController::class,'logout'])->name('logout');
 });

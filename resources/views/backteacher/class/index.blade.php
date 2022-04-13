@@ -23,14 +23,22 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>{{$class->id}}</td>
-                                        <td>{{$class->class_name}}</td>
-                                        <td>{{$numOfStudent}}</td>
-                                        <td>
-                                            <a href="{{route('teacher.index.student',$class->id)}}" title="Sınıfı Gör" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
-                                        </td>
-                                    </tr>
+                                @foreach($classData as $data)
+                                    <input type="hidden" {{$class = App\Models\Classes::where('id', $data->class_id)->get()}}>
+                                    @foreach($class as $sinif)
+                                        <tr>
+                                            <input type="hidden" {{$numOfStudent = App\Models\Student::where('classroom', $sinif->id)->count()}}>
+                                            <td>{{$sinif->id}}</td>
+                                            <td>{{$sinif->class_name}}</td>
+                                            <td>{{$numOfStudent}}</td>
+                                            <td>
+                                                <a href="{{route('teacher.index.student',$sinif->id)}}"
+                                                   title="Sınıfı Gör"
+                                                   class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
